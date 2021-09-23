@@ -2,6 +2,9 @@
   import ContactCard from "./ContactCard.svelte";
 
   let name = "Satheesh";
+  let job = "";
+  let summary = "";
+  let src = "";
   let age = 34;
 
   $: dogYears = age / 7;
@@ -26,9 +29,13 @@
 </h1>
 <button on:click={incrementAge}>Increment age</button>
 <button on:click={decrementAge}>Decrement age</button>
-<input type="text" value={name} on:input={nameInput} />
+
 <input type="text" bind:value={name} />
-<ContactCard />
+<input type="text" bind:value={job} />
+<input type="text" bind:value={src} />
+<textarea rows="3" bind:value={summary} />
+
+<ContactCard userName={name} jobTitle={job} jobSummary={summary} imgSrc={src} />
 
 <style>
   h1 {
